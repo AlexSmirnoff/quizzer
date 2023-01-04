@@ -1,0 +1,12 @@
+<div class="container">
+    <div *ngFor="let i of rows" class="row">
+        <div *ngFor="let j of cols" class="col">
+            <app-quiz-table (valueUpdate)="onValueUpdate($event)"></app-quiz-table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{getTotal()}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row" *ngFor="let mult of [10,20,30,40,50];">
+        <div class="col">
+            <app-answer-field [pointMap]="getPointMap(mult)" (valueUpdate)="onValueUpdate($event)"></app-answer-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{getTotal()}}
+        </div>
+    </div>
+</div>
