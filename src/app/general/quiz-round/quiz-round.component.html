@@ -1,12 +1,12 @@
-<div class="container">
-    <div *ngFor="let i of rows" class="row">
-        <div *ngFor="let j of cols" class="col">
+<div class="container m-0" style="background-color:aliceblue; width: fit-content;">
+    <div *ngFor="let i of rows" class="row" style="width: fit-content;">
+        <div *ngFor="let j of cols" class="col-2" style="width: fit-content;">
             <app-quiz-table (valueUpdate)="onValueUpdate($event)"></app-quiz-table>
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            {{getTotal()}}
+        <div class="col" >
+            <p style="text-align: right;">Всего в туре: {{getTotal()}}</p>
         </div>
     </div>
 </div>
