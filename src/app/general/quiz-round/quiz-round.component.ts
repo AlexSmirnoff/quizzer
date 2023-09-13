@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { AnswerUpdate } from 'src/app/classes/anster-update';
+import { Component, QueryList, ViewChildren } from '@angular/core';
+import { AnswerSetComponent } from '../answer-set/answer-set.component';
 
 @Component({
   selector: 'app-quiz-round',
@@ -7,19 +7,16 @@ import { AnswerUpdate } from 'src/app/classes/anster-update';
   styleUrls: ['./quiz-round.component.css']
 })
 export class QuizRoundComponent {
-  public rowAmount = 2;
-  public colAmount = 2;
+  rows = [0,0];
+  cols = [0,0];
 
-  public rows = Array(this.rowAmount).fill(0);
-  public cols = Array(this.colAmount).fill(0);
+  @ViewChildren(AnswerSetComponent) sets = new QueryList<AnswerSetComponent>();
 
-  private total = 0;
-
-  public onValueUpdate(update: AnswerUpdate) {
-    this.total = this.total - update.oldValue + update.newValue;
+  public getTotalPoints() {
+    return this.sets.reduce((p,c,i) => p + c.getTotalPoints(), 0);
   }
 
-  public getTotal() {
-    return this.total;
+  public reset() {
+    this.sets.forEach(set => set.setAllCorrect())
   }
 }

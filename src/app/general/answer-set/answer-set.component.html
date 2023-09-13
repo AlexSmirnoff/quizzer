@@ -1,0 +1,21 @@
+<div class="container pt-1" style="border: 1px solid gray; background-color: lightcyan; width: fit-content;">
+    <div class="row" *ngFor="let mult of mults">
+        <div class="col">
+            <app-answer-field [multiplier]="mult"></app-answer-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="btn-group">
+                <button class="btn set correct" (click)="setAllCorrect()"></button>
+                <button class="btn set empty" (click)="setAllEmpty()"></button>
+                <button class="btn set wrong" (click)="setAllWrong()"></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p style="text-align: center;">Всего: {{getTotalPoints()}}</p>
+        </div>
+    </div>
+</div>
