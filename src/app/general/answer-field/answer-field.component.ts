@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {AnswerState} from "src/app/classes/answer-state"
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-answer-field',
@@ -8,9 +7,12 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./answer-field.component.css']
 })
 export class AnswerFieldComponent {
-  state = AnswerState.CORRECT;
+  private state = AnswerState.CORRECT;
 
-  private static stateMap= new Map([
+  @Output() changed = new EventEmitter<AnswerState>();
+
+  @Input()
+  stateMap = new Map([
     [AnswerState.CORRECT, AnswerState.WRONG],
     [AnswerState.WRONG, AnswerState.EMPTY],
     [AnswerState.EMPTY, AnswerState.CORRECT]
@@ -19,7 +21,7 @@ export class AnswerFieldComponent {
   @Input() multiplier = 1;
 
   public onClick() {
-    this.state = AnswerFieldComponent.stateMap.get(this.state) ?? AnswerState.CORRECT;
+    this.setState(this.stateMap.get(this.state) ?? AnswerState.CORRECT);
   }
 
   public getCurrentStyle(): string {
@@ -36,5 +38,6 @@ export class AnswerFieldComponent {
 
   public setState(newState: AnswerState): void {
     this.state = newState;
+    this.changed.emit(newState);
   }
 }

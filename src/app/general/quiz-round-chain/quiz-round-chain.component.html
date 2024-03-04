@@ -1,0 +1,24 @@
+<div class="container" style="margin-left: 10px; background-color:aliceblue; width: fit-content;">
+    <div *ngFor="let i of indices" class="row" style="width: fit-content;">
+        <div class="col" style="width: 40px;">
+            <p style="text-align: center; margin-bottom: 0px; padding-top: 7px;">{{i+1}}</p>
+        </div>
+        <div class="col">
+            <app-answer-field [stateMap]="stateMap" (changed)="stateChanged(i, $event)"
+                [multiplier]="points[i]"></app-answer-field>
+        </div>
+    </div>
+    <div class="row" style="padding-left: 40px;">
+        <div class="col">
+            <div class="btn-group">
+                <button class="btn set correct" (click)="setAllCorrect()"></button>
+                <button class="btn set empty" (click)="setAllEmpty()"></button>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-left: 35px; padding-top: 2px;">
+        <div class="col">
+            <p style="text-align: center;">Всего: {{getTotalPoints()}}</p>
+        </div>
+    </div>
+</div>
