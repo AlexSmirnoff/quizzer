@@ -7,6 +7,8 @@ import { AnswerFieldComponent } from './general/answer-field/answer-field.compon
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AnswerSetComponent } from './general/answer-set/answer-set.component';
 import { QuizRoundComponent } from './general/quiz-round/quiz-round.component';
+import { NavbarComponent } from './general/navbar/navbar.component';
+import { QuizRoundChainComponent } from './general/quiz-round-chain/quiz-round-chain.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { QuizRoundComponent } from './general/quiz-round/quiz-round.component';
     AnswerFieldComponent,
     AnswerSetComponent,
     QuizRoundComponent,
+    NavbarComponent,
+    QuizRoundChainComponent,
   ],
   imports: [
     BrowserModule,
