@@ -9,7 +9,7 @@ import {AnswerState} from "src/app/classes/answer-state"
 export class AnswerFieldComponent {
   private state = AnswerState.CORRECT;
 
-  @Output() changed = new EventEmitter<AnswerState>();
+  @Output() stateChanged = new EventEmitter<AnswerState>();
 
   @Input()
   stateMap = new Map([
@@ -38,6 +38,6 @@ export class AnswerFieldComponent {
 
   public setState(newState: AnswerState): void {
     this.state = newState;
-    this.changed.emit(newState);
+    this.stateChanged.emit(newState);
   }
 }

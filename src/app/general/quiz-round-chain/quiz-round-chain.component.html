@@ -4,7 +4,7 @@
             <p style="text-align: center; margin-bottom: 0px; padding-top: 7px;">{{i+1}}</p>
         </div>
         <div class="col">
-            <app-answer-field [stateMap]="stateMap" (changed)="stateChanged(i, $event)"
+            <app-answer-field [stateMap]="stateMap" (stateChanged)="stateChanged(i, $event)"
                 [multiplier]="points[i]"></app-answer-field>
         </div>
     </div>
