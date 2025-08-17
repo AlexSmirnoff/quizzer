@@ -1,0 +1,31 @@
+<div class="container" style="margin-left: 10px; background-color:aliceblue; width: fit-content;">
+    <div class="row" style="padding-top: 12px;">
+        <div class="col" style="padding-left: 2px; padding-right: 5px;">
+            <p>Бонус:</p>
+        </div>
+        <div class="col" style="padding-left: 0px;">
+            <input type="text" style="width: 110px;" [ngModel]="selectedString" (ngModelChange)="setSelectedIndices($event)" pattern="[0-9,]*">
+        </div>
+    </div>
+    <div *ngFor="let i of indices" class="row" style="width: fit-content;" [ngClass]="{'selected': isIndexSelected(i)}">
+        <div class="col" style="width: 40px;">
+            <p style="text-align: center; margin-bottom: 0px; padding-top: 7px;">{{i}}</p>
+        </div>
+        <div class="col">
+            <app-answer-field [multiplier]="getMultiplier(i)" [stateMap]="stateMap"></app-answer-field>
+        </div>
+    </div>
+    <div class="row" style="padding-left: 40px;">
+        <div class="col">
+            <div class="btn-group">
+                <button class="btn set correct" (click)="setAllCorrect()"></button>
+                <button class="btn set empty" (click)="setAllEmpty()"></button>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-left: 55px; padding-top: 2px;">
+        <div class="col">
+            <p>Всего: {{getTotalPoints()}}</p>
+        </div>
+    </div>
+</div>

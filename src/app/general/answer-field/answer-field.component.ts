@@ -36,6 +36,10 @@ export class AnswerFieldComponent {
     return this.state * this.multiplier;
   }
 
+  public getState(): AnswerState {
+    return this.state;
+  }
+
   public setState(newState: AnswerState): void {
     this.state = newState;
     this.stateChanged.emit(newState);

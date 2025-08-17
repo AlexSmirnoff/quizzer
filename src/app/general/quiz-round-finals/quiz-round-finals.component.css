@@ -1,0 +1,20 @@
+.set.correct {
+    background-color: green;
+    color: white;
+}
+
+.set.wrong {
+    background-color: red;
+    color: white;
+}
+
+.set.empty {
+    background-color: gray;
+    width: 34px;
+}
+
+.set {
+    width: 33px;
+    height: 20px;
+    margin: 1px;
+}

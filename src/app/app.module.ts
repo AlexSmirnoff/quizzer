@@ -9,6 +9,9 @@ import { AnswerSetComponent } from './general/answer-set/answer-set.component';
 import { QuizRoundComponent } from './general/quiz-round/quiz-round.component';
 import { NavbarComponent } from './general/navbar/navbar.component';
 import { QuizRoundChainComponent } from './general/quiz-round-chain/quiz-round-chain.component';
+import { QuizRoundAlphabetComponent } from './general/quiz-round-alphabet/quiz-round-alphabet.component';
+import { QuizRoundFinalsComponent } from './general/quiz-round-finals/quiz-round-finals.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,11 +21,14 @@ import { QuizRoundChainComponent } from './general/quiz-round-chain/quiz-round-c
     QuizRoundComponent,
     NavbarComponent,
     QuizRoundChainComponent,
+    QuizRoundAlphabetComponent,
+    QuizRoundFinalsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
